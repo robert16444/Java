@@ -1,9 +1,22 @@
 package com.company;
 
-public class Employee {
+import java.io.Serializable;
+
+public abstract class Employee implements Serializable {
     private String Name;
     private int ID;
     private int salary;
+    private int officeType;
+
+    public Employee(String name, int id, int salary/*, int officeType, int specialField1, boolean specialField2*/) {
+        this.Name = name;
+        this.ID = id;
+        this.salary = salary;
+    }
+
+    public Employee() {
+
+    }
 
     public boolean equals(Employee obj)
     {
@@ -14,11 +27,18 @@ public class Employee {
         return false;
     }
 
-    public Employee(String name, int ID, int salary) {
+    public int getOfficeType() {
+        return officeType;
+    }
+
+    public Employee(String name, int ID, int salary, int officeType) {
         Name = name;
         this.ID = ID;
         this.salary = salary;
+        this.officeType = officeType;
     }
+
+    public abstract void writeEmployeeToCSV(EmployeeManager employeeManager);
 
     public int biggerSalary(int howMuch)
     {

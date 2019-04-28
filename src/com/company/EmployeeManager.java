@@ -10,6 +10,11 @@ public class EmployeeManager {
        list.add(obj);
    }
 
+   public int returrr(Employee obj)
+   {
+       return obj.getOfficeType();
+   }
+
    public  void remove(Employee obj)
    {
        list.remove(obj);
